@@ -21,7 +21,7 @@ h1 {
     color: whitesmoke;
     text-align: center;
     font-size: 3rem;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+    text-shadow: 4px 4px 5px rgba(0, 0, 0, .2);
 
     position: absolute;
     top: .5rem;

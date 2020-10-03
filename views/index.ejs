@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NES Test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script defer src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container-center">
+        <div class="chat-window">
+            <h1>Viking Chat</h1>
+            <div class="index-wrapper">
+                <form action="/room" method="GET" class="join-form" id="join-form">
+                    <label for="name-input">Username</label>
+                    <input type="text" id="name-input" name="username" autocomplete="off" maxlength="10" required>
+                    <label for="room-select">Room</label>
+                    <select name="room" id="room-select" form="join-form">
+                        <% Object.keys(rooms).forEach(room => { %>
+                            <option value="<%= room %>"><%= room %></option>
+                        <% }) %>
+                    </select>
+                    <button type="submit" class="btn">Join Room</button>
+                </form>
+                <form action="/room" method="POST" class="room-form">
+                    <input type="text" name="room" autocomplete="off" maxlength="10" required
+                    placeholder="Enter name of new room">
+                    <button type="submit" class="btn">Create Room</button>
+                </form>
+            </div><!--wrapper-->
+        </div><!--chat-window-->
+    </div><!--container-->
+</body>
+</html>

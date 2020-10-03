@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NES Test</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script defer>
+        const roomName = "<%= roomName %>";
+        const userName = "<%= userName %>";
+        document.getElementById('room-users').innerHTML = '';
+    </script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="/js/room.js"></script>
+</head>
+<body>
+    <div class="container-center">
+        <div class="chat-window">
+            <h1>Viking Chat</h1>
+            <div class="sidebar">
+                <a href="/" class="leave-room">
+                    <span class="material-icons">exit_to_app</span>
+                    Leave
+                </a>
+                <h2 class="room-name"><%= roomName %></h2>
+                <hr style="width: 100%">
+                <ul class="room-users" id="room-users">
+                    <% users.forEach(user => { %>
+                        <li class="user" id="<%= user %>">
+                            <span class="material-icons">person</span>
+                            <%= user %>
+                        </li> 
+                    <% }) %>  
+                </ul>
+            </div>
+            <div class="chat-wrapper">
+                <div class ="message-container" id="message-container">
+                </div>
+                <form id="send-container">
+                    <input type="text" id="message-input" autocomplete="off" placeholder="Enter message" maxlength="250">
+                    <button type="submit" class="btn" id="send-button">Send</button>
+                </form>
+            </div>
+        </div><!--Chat Window-->
+    </div><!--Container-->
+</body>
+</html>

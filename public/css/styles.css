@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&family=Roboto:wght@400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    outline: none;
+
+    margin: 0;
+    padding: 0; 
+
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+body {
+    background: rgb(217, 218, 235);
+}
+
+h1 {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 3rem;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
+
+    position: absolute;
+    top: .5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+}
+
+select {
+    padding: .6rem;
+    cursor: pointer;
+}
+
+option {
+    cursor: pointer;
+}
+
+input {
+    padding: .6rem;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, .3);
+    border: none;
+    border-radius: 2px;
+}
+
+input::placeholder {
+    opacity: 70%;
+}
+
+.container-center {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-window {
+    background: rgb(48, 49, 119);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, .5);
+
+    padding: 10rem 4rem 3rem;
+    border-radius: .5rem;
+
+    display: flex;
+    position: relative;
+}
+
+.sidebar {
+    background: rgb(63, 64, 146);
+    color: whitesmoke;
+
+    padding: 1.5rem 1rem;
+    margin-right: 1rem;
+    width: 200px;
+    border-radius: 2px;
+    
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leave-room {
+    text-decoration: none;
+    color: rgb(182, 187, 235);
+    
+    width: 4.3rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 8rem;
+    left: 3.8rem;
+}
+
+.leave-room > span {
+    transform: rotate(180deg);
+    font-size: 24px;
+    margin-right: .1rem;
+}
+
+.room-name {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+}
+
+.room-users{
+    list-style: none;
+    margin-top: 1rem;
+    width: 100%;
+    padding-left: 3rem;
+}
+
+.user {
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    position: relative;
+}
+
+.user > span {
+    margin-right: .3rem;
+    position: absolute;
+    left: -1.6rem;
+    top: -.30rem;
+}
+
+.chat-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#send-container {
+    display: flex;
+
+    flex: 1;
+}
+
+#message-input {
+    flex: 1;
+}
+
+.btn {
+    background: rgb(69, 69, 211);
+    color: rgb(230, 230, 230);
+
+    padding: .6rem .8rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 2px;
+
+    align-self: center;
+}
+
+.message-container {
+    background: rgb(255, 255, 255);
+
+    padding: 2rem 1.5rem 1rem;
+    margin-bottom: 1rem;
+    height: 600px;
+    width: 600px;
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.message-container::-webkit-scrollbar {
+    width: .5rem;
+}
+
+.message-container::-webkit-scrollbar-track {
+    background: rgb(94, 94, 94);
+    border-radius: 0 2px 2px 0;
+}
+
+.message-container::-webkit-scrollbar-thumb {
+    background: rgb(150, 150, 150);
+    border-radius: 1rem;
+}
+
+.message {
+    background: rgb(223, 223, 255);
+    color: rgb(24, 24, 24);
+
+    margin-top: 1.5rem;
+    padding: .5rem .8rem;
+    border-radius: .5rem;
+    max-width: 70%;
+
+    line-height: 1.4rem;
+    position: relative;
+}
+
+.message:first-of-type {
+    margin-top: 0;
+}
+
+.message.recieved {
+    align-self: flex-start;
+    background: rgb(242, 243, 250);
+}
+
+.message.sent {
+    align-self: flex-end;
+}
+
+.server-msg > p {
+    font-style: italic;
+    color: rgba(24, 24, 24, .5);
+}
+
+.message > p {
+    word-break: break-word;
+}
+
+.message > .name {
+    font-size: .8rem;
+    color: rgb(141, 141, 141);
+    margin-right: .2rem;
+    position: absolute;
+    top: -1.3rem;
+}
+
+.message > .time {
+    font-size: .8rem;
+    color: rgb(141, 141, 141);
+    position: absolute;
+    top: -1.3rem;
+    font-weight: 400;
+}
+
+.message.sent > .name {
+    right: 2.6rem;
+}
+
+.message.sent > .time {
+    right: .5rem;
+}
+
+.message.recieved > .name {
+    left: 2.8rem;
+}
+
+.message.recieved > .time {
+    left: .5rem;
+}
+
+.index-wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+.join-form {
+    color: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+
+    border-right: 1px solid rgb(163, 163, 163);
+    padding-right: 4rem;
+    padding-bottom: 1rem;
+}
+
+.join-form > input {
+    margin-bottom: 1rem;
+}
+
+.join-form > select {
+    margin-bottom: 1.5rem;
+}
+
+.room-form {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+}
+
+.room-form > input {
+    margin-bottom: 1.5rem;
+}
